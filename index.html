@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Stackvern | Website Developer in Tamil Nadu | Web & AI Solutions</title>
+  <meta name="description"
+    content="Stackvern is a professional website developer in Tamil Nadu offering modern websites, web applications, and AI-powered solutions for businesses." />
+  <meta name="keywords"
+    content="Stackvern, website developer in Tamil Nadu, web developer Tamil Nadu, business website development, web applications, AI solutions" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Stackvern" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --white: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --primary: #0f172a;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius: 22px;
+      --max-width: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* INTRO LOADER */
+    #intro-loader {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    #intro-loader.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-content {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .intro-logo {
+      width: 120px;
+      margin: 0 auto 18px;
+      opacity: 0;
+      transform: translateY(20px) scale(0.9);
+      animation: introLogo 1s ease forwards;
+    }
+
+    .intro-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: #0f172a;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: introText 0.8s ease forwards;
+      animation-delay: 0.45s;
+    }
+
+    .intro-subtitle {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #475569;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: introText 0.8s ease forwards;
+      animation-delay: 0.8s;
+    }
+
+    @keyframes introLogo {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes introText {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* PAGE */
+    #main-content {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    #main-content.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 78px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--primary);
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #334155;
+      font-weight: 500;
+      font-size: 0.96rem;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #0f172a;
+    }
+
+    .nav-cta {
+      padding: 12px 18px;
+      background: #0f172a;
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: 0.25s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 90px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      line-height: 1.06;
+      letter-spacing: -1.8px;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+
+    .hero-text p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 28px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .badge {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      color: #334155;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: #0f172a;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: #0f172a;
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      background: rgba(15, 23, 42, 0.04);
+      border-radius: 50%;
+      top: -60px;
+      right: -60px;
+    }
+
+    .hero-logo {
+      width: 82px;
+      margin-bottom: 22px;
+    }
+
+    .hero-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card p {
+      color: var(--muted);
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mini-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .mini-box h4 {
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+
+    .mini-box span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 42px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .about-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-box h3 {
+      margin-bottom: 14px;
+      font-size: 1.35rem;
+    }
+
+    .about-box p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .about-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .about-list li {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+      border-radius: 16px;
+      color: #334155;
+      font-weight: 500;
+    }
+
+    /* WHY CHOOSE US */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .why-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 26px 22px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .why-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .why-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* CTA */
+    .cta-box {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border-radius: 28px;
+      padding: 48px 32px;
+      color: #fff;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      margin-bottom: 14px;
+      line-height: 1.12;
+    }
+
+    .cta-box p {
+      max-width: 720px;
+      margin: 0 auto 26px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .cta-box .btn-secondary {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: #fff;
+      color: #0f172a;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .contact-card,
+    .contact-form {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h3,
+    .contact-form h3 {
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-item {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #f8fafc;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #0f172a;
+    }
+
+    .contact-form form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #f8fafc;
+      font-family: inherit;
+      font-size: 0.98rem;
+      outline: none;
+      transition: 0.25s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #94a3b8;
+      background: #fff;
+    }
+
+    .contact-form textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 26px 0 40px;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
+    @media (max-width: 992px) {
+
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 78px;
+        right: 4%;
+        width: 92%;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+        display: none;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .cards,
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        margin-bottom: 32px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-card {
+        padding: 24px;
+      }
+
+      .mini-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-logo {
+        width: 95px;
+      }
+
+      .intro-subtitle {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- INTRO ANIMATION -->
+  <div id="intro-loader">
+    <div class="intro-content">
+      <img src="stackvernlogo.jpg" alt="Stackvern Logo" class="intro-logo" />
+      <h1 class="intro-title">Stackvern</h1>
+      <p class="intro-subtitle">Modern Websites, Web Applications and AI Solutions</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main-content">
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="container nav-wrap">
+        <a href="#home" class="brand">
+          <img src="stackvernlogo.jpg" alt="Stackvern Logo" />
+          <span>Stackvern</span>
+        </a>
+
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a href="#contact" class="nav-cta">Start a Project</a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-text reveal">
+          <div class="hero-badges">
+            <span class="badge">Professional Web Development</span>
+            <span class="badge">Business-Focused Solutions</span>
+            <span class="badge">AI-Powered Digital Services</span>
+          </div>
+
+          <h1>Website Developer in Tamil Nadu for Modern Business Growth</h1>
+          <p>
+            Stackvern helps small businesses build a strong online presence with
+            modern websites, scalable web applications, and professional AI-powered
+            digital solutions designed for growth.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Discuss Your Project</a>
+            <a href="#services" class="btn btn-secondary">Explore Services</a>
+          </div>
+        </div>
+
+        <div class="hero-card reveal">
+          <img src="stackvernlogo.jpg" alt="Stackvern Logo" class="hero-logo" />
+          <h3>Professional Digital Solutions</h3>
+          <p>
+            We build clean, fast, and conversion-focused digital experiences for
+            startups, shops, restaurants, institutions, and growing brands.
+          </p>
+
+          <div class="mini-stats">
+            <div class="mini-box">
+              <h4>Websites</h4>
+              <span>Modern, responsive, business-ready</span>
+            </div>
+            <div class="mini-box">
+              <h4>Web Apps</h4>
+              <span>Scalable systems for operations</span>
+            </div>
+            <div class="mini-box">
+              <h4>AI Features</h4>
+              <span>Smarter tools and automation</span>
+            </div>
+            <div class="mini-box">
+              <h4>Brand Trust</h4>
+              <span>Professional online presence</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Our Services</h2>
+          <p>
+            We provide high-quality website development and digital solutions that
+            help businesses establish credibility, improve visibility, and grow online.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card reveal">
+            <h3>Business Website Development</h3>
+            <p>
+              Professional websites designed to represent your business clearly and
+              convert visitors into customers.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Custom Web Applications</h3>
+            <p>
+              Smart web-based systems with dashboards, forms, user roles, and backend
+              integrations for real business needs.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <h3>AI-Powered Solutions</h3>
+            <p>
+              Chatbots, automation tools, and intelligent features that improve
+              customer interaction and workflow efficiency.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <h3>E-Commerce Development</h3>
+            <p>
+              Online store solutions with product display, inquiry flow, and scalable
+              shopping experiences.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Website Redesign</h3>
+            <p>
+              Upgrade outdated websites into fast, clean, and modern digital
+              experiences with better trust and presentation.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Maintenance and Support</h3>
+            <p>
+              Continuous updates, content changes, technical support, and improvement
+              services for long-term website performance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>About Stackvern</h2>
+          <p>
+            Stackvern is a professional digital solutions brand focused on helping
+            businesses in Tamil Nadu build and grow online with modern technology.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-box reveal">
+            <h3>Who We Are</h3>
+            <p>
+              We create websites and digital platforms that reflect professionalism,
+              trust, and business value. Our approach combines strong design,
+              development quality, and practical business thinking.
+            </p>
+            <p>
+              Whether you are a startup, local business, personal brand, or service
+              provider, Stackvern helps you establish a professional online identity.
+            </p>
+          </div>
+
+          <div class="about-box reveal">
+            <h3>What We Focus On</h3>
+            <ul class="about-list">
+              <li>Modern websites for business growth</li>
+              <li>Professional UI with mobile responsiveness</li>
+              <li>Web applications for practical operations</li>
+              <li>AI integration for smarter digital experiences</li>
+              <li>Strong digital presence for long-term trust</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section id="why-us">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Why Choose Stackvern</h2>
+          <p>
+            We combine design quality, development clarity, and business understanding
+            to deliver digital solutions that look professional and perform effectively.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card reveal">
+            <h3>Professional Design</h3>
+            <p>Clean, modern interfaces built to create trust and a premium impression.</p>
+          </div>
+
+          <div class="why-card reveal">
+            <h3>Business-Oriented Approach</h3>
+            <p>Solutions planned with your customer experience and growth goals in mind.</p>
+          </div>
+
+          <div class="why-card reveal">
+            <h3>Responsive Development</h3>
+            <p>Websites and applications that work smoothly across desktop, tablet, and mobile.</p>
+          </div>
+
+          <div class="why-card reveal">
+            <h3>Scalable Digital Solutions</h3>
+            <p>Built for present business needs while keeping future expansion in mind.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="container">
+        <div class="cta-box reveal">
+          <h2>Build a Strong Online Presence with Stackvern</h2>
+          <p>
+            If you are looking for a professional website developer in Tamil Nadu,
+            Stackvern is ready to help you create a digital presence that reflects
+            quality, trust, and business value.
+          </p>
+          <a href="#contact" class="btn btn-secondary">Contact Stackvern</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Contact Us</h2>
+          <p>
+            Let us know about your business and project requirements. We will help
+            you turn your idea into a professional digital solution.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <h3>Get in Touch</h3>
+            <p>
+              Reach out for business websites, web applications, redesign services,
+              or AI-powered digital solutions.
+            </p>
+
+            <div class="contact-info">
+              <div class="contact-item">
+                <strong>Email</strong>
+                stackverntech@gmail.com
+              </div>
+              <div class="contact-item">
+                <strong>Location</strong>
+                Tamil Nadu, India
+              </div>
+              <div class="contact-item">
+                <strong>Service Focus</strong>
+                Websites, Web Applications, AI Solutions
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form reveal">
+            <h3>Project Inquiry</h3>
+            <form id="contact-form">
+              <input type="text" name="name" placeholder="Your Name" required />
+              <input type="email" name="email" placeholder="Your Email" required />
+              <input type="text" name="business" placeholder="Business / Brand Name" />
+              <textarea name="message" placeholder="Tell us about your project" required></textarea>
+              <button type="submit" class="btn btn-primary">Send Inquiry</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <p>© 2026 Stackvern. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    // Intro Loader
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("intro-loader");
+      const mainContent = document.getElementById("main-content");
+
+      setTimeout(() => {
+        loader.classList.add("hide");
+        mainContent.classList.add("show");
+      }, 2800);
+    });
+
+    // Mobile Menu
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+      });
+    });
+
+    // Scroll Reveal
+    const reveals = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const revealTop = reveals[i].getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if (revealTop < windowHeight - revealPoint) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+  emailjs.init("FU9A1EGTVPyKVQQpH"); // <-- replace
+})();
+
+document.getElementById("contact-form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  emailjs.sendForm("service_108fpvk", "template_iu8sl9d", this)
+
+    .then(function(){
+
+        emailjs.sendForm("service_108fpvk", "template_tt43qxd", document.getElementById("contact-form"));
+
+      // success → redirect page
+      window.location.href = "thankyou.html";
+    }, function(error){
+      alert("Failed to send message. Try again.");
+      console.log(error);
+    });
+});
+</script>
+</body>
+
+</html>
